@@ -13,21 +13,7 @@ const streamToBuffer = (stream) =>
     stream.once('error', (err) => reject(err));
   });
 
-/**
- * generateInvoicePdfBuffer(invoiceData)
- *
- * invoiceData: {
- *   invoiceNumber: string,
- *   date: ISO string,
- *   user: { name, email },
- *   planName: string,
- *   amount: number (in paise) OR amountRupees?: number,
- *   items?: [{ description, qty, unitAmountPaise }],
- *   notes?: string
- * }
- *
- * Returns: Promise<Buffer>
- */
+
 export const generateInvoicePdfBuffer = async (invoiceData = {}) => {
   const {
     invoiceNumber = `INV-${Date.now()}`,
