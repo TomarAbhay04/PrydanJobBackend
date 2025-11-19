@@ -41,6 +41,9 @@ app.use(
   })
 );
 
+app.use('/', (req,res)=>{
+  res.send('Subscription Management backend is running is running....')
+});
 // For webhook route we need raw body to verify signature. Mount raw-body middleware for that path only.
 app.use('/api/payments/webhook', express.raw({ type: '*/*' }));
 
@@ -88,6 +91,8 @@ app.get('/health', (req, res) => {
  * - webhookRoutes is mounted at /api/payments/webhook and expects the raw body (set above)
  * - paymentRoutes remains mounted at /api/payments for normal JSON endpoints like /create-order and /verify
  */
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api/plans', planRoutes);
 
